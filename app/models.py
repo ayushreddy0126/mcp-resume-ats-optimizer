@@ -1,9 +1,10 @@
 from pydantic import BaseModel
-from typing import List, Optional, Dict
+from typing import Optional, Dict
 
 class ResumeFetchRequest(BaseModel):
-    platforms: List[str]
-    username: str
+    github: Optional[str]
+    linkedin: Optional[str]
+    scholar: Optional[str]
 
 class ResumeData(BaseModel):
     linkedin: Optional[Dict] = None

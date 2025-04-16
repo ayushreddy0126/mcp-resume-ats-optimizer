@@ -10,5 +10,5 @@ def root():
 
 @app.post("/resume/fetch", response_model=ResumeData)
 def fetch_resume_data(request: ResumeFetchRequest):
-    result = aggregate_resume_data(request.platforms, request.username)
+    result = aggregate_resume_data(request)
     return result

@@ -1,18 +1,19 @@
 from app.fetchers.github import fetch_github
 from app.fetchers.linkedin import fetch_linkedin
 from app.fetchers.scholar import fetch_scholar
+from app.models import ResumeFetchRequest
 
-def aggregate_resume_data(platforms: list, username: str):
+def aggregate_resume_data(request: ResumeFetchRequest):
     data = {}
 
-    if "github" in platforms:
-        data["github"] = fetch_github(username)
+    if request.github:
+        data["github"] = fetch_github(request.github)
 
-    if "linkedin" in platforms:
-        data["linkedin"] = fetch_linkedin(username)
+    if request.linkedin:
+        data["linkedin"] = fetch_linkedin(request.linkedin)
 
-    if "scholar" in platforms:
-        data["scholar"] = fetch_scholar(username)
+    if request.linkedin:
+        data["scholar"] = fetch_scholar(request.scholar)
 
     return data
 
