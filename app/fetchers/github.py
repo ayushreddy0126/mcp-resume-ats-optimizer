@@ -1,12 +1,51 @@
+import requests
+import os
+
+GITHUB_TOKEN = os.getenv("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")
+
 def fetch_github(username : str):
-    # Simulated Github data
+
+    headers = {
+        "Accept" : "application/vnd.github+json"
+    }
+
+    if GITHUB_TOKEN:
+        headers["Authorization"] = f"Bearer {GITHUB_TOKEN}"
+    
+
+    user_url = f"https://api.github.com/users/{username}"
+    repos_url = f"https://api.github.com/users/{username}/repos"
+
+    user_resp = requests.get(user_url, headers=headers)
+    repos_resp = requests.get(repos_url, headers=headers)
+
+
+    if user_resp.status_code != 200 or repos_resp.status_code != 200:
+        return {"error":"GitHub API request failed",
+                "user_status": user_resp.status_code,
+            "repos_status": repos_resp.status_code}
+    
+    user_data = user_resp.json()
+    repos_data = repos_resp.json()
 
     return {
-        "username" : username,
-        "projects" : [
-            {"name" : "resume-optimizer", "stars" : 150, "language": "Python"},
-            {"name" : "llm-orchestrator", "stars": 87,"language":"TypeScript"}
-        ],
-        "contributions" : 324,
-        "followers" : 45
+        "username": user_data.get("login"),
+        "followers": user_data.get("followers"),
+        "public_repos": user_data.get("public_repos"),
+        "projects":[
+            {
+            "name": repo["name"],
+            "description": repo.get("description"),
+            "stars": repo.get("stargazers_count",0),
+            "language": repo.get("language")
+            }
+            for repo in repos_data
+        ]
+
     }
+
+    
+    
+    
+
+    
