@@ -7,7 +7,7 @@ def fetch_scholar(username: str):
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
         }
 
-        # Step 1: Search for the author
+        # Step 1: Searching for the author
         query = username.replace(" ", "+")
         search_url = f"https://scholar.google.com/citations?view_op=search_authors&mauthors={query}"
         response = requests.get(search_url, headers=headers)

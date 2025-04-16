@@ -117,6 +117,7 @@ typing_extensions==4.13.2
 tzdata==2023.3
 urllib3==1.26.6
 ushlex==0.99.1
+webdriver-manager==4.0.2
 webencodings==0.5.1
 websocket-client==1.8.0
 Werkzeug==2.1.2
