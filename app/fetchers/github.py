@@ -1,7 +1,7 @@
 import requests
 import os
 
-GITHUB_TOKEN = os.getenv("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")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 def fetch_github(username : str):
 
