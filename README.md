@@ -3,7 +3,7 @@
 **AI-Powered Resume Tailoring Tool** — built using the Model-Compute-Platform (MCP) architecture to help users optimize their resumes for job descriptions and beat Applicant Tracking Systems (ATS).
 
 ![UI Preview](assets/ats-ui-preview.png)
-
+https://www.dropbox.com/scl/fi/te069s7asb0hh1d2d1tkc/ATS_RESUME_OPTIMISER.mov?rlkey=w22mv1ldua5ro9035spe45kxp&st=92jpjaom&dl=0
 ---
 
 ## 📌 What It Does
